@@ -74,8 +74,7 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 }
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
- console.log(cumleKur("Hello World"));
-
+console.log(cumleKur("Hello World"));
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 console.log(cumleKur("Hello"," World"));
@@ -103,14 +102,14 @@ console.log(bircumle);
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
 	
-let sepera=","
-function cumlelereDonustur(cbcumleler,cbsepera){
-	let cumle =	 cbcumleler.map((asli) => 
-	asli.join(cbsepera));
-		return cumle;
-}		
-	console.log(cumlelereDonustur(cumleler,sepera));
 
+function cumlelereDonustur(cumleler, ayrac=","){
+	let yenidizi= cumleler.map(item=>{
+		    return item.join(ayrac);
+	    })
+	return yenidizi;
+}
+console.log(cumlelereDonustur(cumleler, " "));
 
 
 /* GÖREV 2:
@@ -123,9 +122,12 @@ function cumlelereDonustur(cbcumleler,cbsepera){
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(cbcumleler, cbcumlekur,cbcumlelereDonustur ){
-};
-
+function paragrafOlustur(cumleler, cb_cumleKur, cb_cumlelereDonustur ){
+	let dizi=cb_cumlelereDonustur(cumleler, " ");
+	let paragraf =cb_cumleKur(dizi[1], dizi[3], dizi[5], dizi[7], dizi[9]);
+    return paragraf;
+}
+console.log(paragrafOlustur(cumleler, cumleKur, cumlelereDonustur));
 
 /* 	GÖREV 3:
 		Yukarıda isimleri sebzeler ve meyveler olan 2 dizi bulunmaktadır. Bu dizileri kullanarak aşağıdaki görevleri tamamlayın.
@@ -176,10 +178,18 @@ console.log(manav);
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
-/* kodlar buraya */
+			
+function emojileriDonustur(cumle,emojiler){
+	for (let a in emojiler) {
+		cumle= cumle.replaceAll(a.toUpperCase(), emojiler[a]);
+		cumle= cumle.replaceAll(a.toLowerCase(), emojiler[a]);
+		
+		}
+		return cumle;
+	}
 
-}
+
+
 
 
 
